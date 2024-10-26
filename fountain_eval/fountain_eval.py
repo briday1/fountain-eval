@@ -132,6 +132,9 @@ def plot_character_activity(character_data, total_seconds, script_title):
     for minute in range(1, int(np.ceil(total_seconds / 60)) + 1):
         ax.axvline(x=minute, color='gray', linestyle='dotted', lw=1)
 
+    # Invert the y-axis to match the CLI output style
+    ax.invert_yaxis()
+
     # Title of the plot is the script title
     ax.set_title(script_title, fontsize=14, weight='bold')
 
@@ -158,14 +161,33 @@ def display_character_counts(character_data, total_seconds):
 
     df = pd.DataFrame(char_stats)
 
-    # Add the script total duration to the summary table
-    duration = format_duration(total_seconds)
-    df = df.append({'Character': 'Total Duration', 'Word Count': '-', 'Line Count': duration}, ignore_index=True)
+    # Create a new row for the total duration
+    total_duration_row = pd.DataFrame([{
+        'Character': 'Total Duration',
+        'Word Count': '-',
+        'Line Count': format_duration(total_seconds)
+    }])
+
+    # Use pd.concat instead of deprecated append
+    df = pd.concat([df, total_duration_row], ignore_index=True)
 
     print(df)
 
-def analyze_fountain_file(file_path, show_plot=True, verbose=False):
-    """Main function to analyze a Fountain file and display both a plot and a table."""
+def display_cli_timeline(character_data, total_seconds):
+    """Displays a CLI timeline of character activity using bars."""
+    print(f"\nCharacter Activity Timeline (Duration: {format_duration(total_seconds)})")
+    max_length = 50  # Max length for each bar in the CLI
+    for character, data in character_data.items():
+        bar = [' '] * max_length
+        for start_time, end_time in data['positions']:
+            start_idx = int(start_time / total_seconds * max_length)
+            end_idx = int(end_time / total_seconds * max_length)
+            for i in range(start_idx, end_idx):
+                bar[i] = '█'
+        print(f"{character.ljust(15)}: {''.join(bar)}")
+
+def analyze_fountain_file(file_path, show_plot=False, show_cli=False, verbose=False):
+    """Main function to analyze a Fountain file and display either a plot, CLI timeline, or both."""
     # Extract the script title
     script_title = extract_script_title(file_path)
 
@@ -179,6 +201,9 @@ def analyze_fountain_file(file_path, show_plot=True, verbose=False):
     if show_plot:
         plot_character_activity(character_data, total_seconds, script_title)
 
+    if show_cli:
+        display_cli_timeline(character_data, total_seconds)
+
     display_character_counts(character_data, total_seconds)
 
 def main():
@@ -186,12 +211,12 @@ def main():
 
     parser = argparse.ArgumentParser(description="Analyze character activity and word/line counts in Fountain files.")
     parser.add_argument("file", help="Path to the Fountain file to analyze.")
-    parser.add_argument("--no-plot", action="store_true", help="Do not show the plot of character activity.")
+    parser.add_argument("--gui_timeline", action="store_true", help="Show a GUI plot of character activity.")
+    parser.add_argument("--cli_timeline", action="store_true", help="Show a CLI timeline of character activity.")
     parser.add_argument("--verbose", action="store_true", help="Display additional details during execution.")
 
     args = parser.parse_args()
-    analyze_fountain_file(args.file, show_plot=not args.no_plot, verbose=args.verbose)
+    analyze_fountain_file(args.file, show_plot=args.gui_timeline, show_cli=args.cli_timeline, verbose=args.verbose)
 
 if __name__ == '__main__':
     main()
-
