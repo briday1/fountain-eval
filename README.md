@@ -40,3 +40,18 @@ Once installed, you can run `fountain_eval` from the command line by passing a
 ```bash
 fountain_eval /path/to/your_script.fountain
 ```
+
+## CLI Output
+
+Here's an example output
+
+```bash
+              Character Word Count    Line Count
+0  PROSECUTION ATTORNEY         74             7
+1             JUROR #85         17             1
+2      DEFENSE ATTORNEY         62             5
+3                 JUDGE        109            11
+4             JUROR #86        276            15
+5               BAILIFF         10             1
+6        Total Duration          -  4 min 34 sec
+```
