@@ -50,8 +50,8 @@ Character Activity Timeline (Duration: 3 min 39 sec)
 BAILIFF              :            █                                      
 DEFENSE ATTORNEY     :   █          ██               ██                  
 JUDGE                :        ███            █ ██            █    ███   █
-JUROR #85            :  █                                                
-JUROR #86            :           █ █  ███████ █    ██  ██████ ████   ███ 
+JUROR 85             :  █                                                
+JUROR 86             :           █ █  ███████ █    ██  ██████ ████   ███ 
 PROSECUTION ATTORNEY : █  ████                   ██                      
               Character Word Count    Line Count
 0  PROSECUTION ATTORNEY         74             7
