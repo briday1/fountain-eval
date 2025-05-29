@@ -46,6 +46,13 @@ fountain_eval /path/to/your_script.fountain
 Here's an example output
 
 ```bash
+Character Activity Timeline (Duration: 3 min 39 sec)
+PROSECUTION ATTORNEY: █  ████                   ██                      
+JUROR #85      :  █                                                
+DEFENSE ATTORNEY:   █          ██               ██                  
+JUDGE          :        ███            █ ██            █    ███   █
+JUROR #86      :           █ █  ███████ █    ██  ██████ ████   ███ 
+BAILIFF        :            █                                      
               Character Word Count    Line Count
 0  PROSECUTION ATTORNEY         74             7
 1             JUROR #85         17             1
@@ -53,5 +60,5 @@ Here's an example output
 3                 JUDGE        109            11
 4             JUROR #86        276            15
 5               BAILIFF         10             1
-6        Total Duration          -  4 min 34 sec
+6        Total Duration          -  3 min 39 sec
 ```
