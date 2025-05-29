@@ -55,10 +55,10 @@ JUROR 86             :           █ █  ███████ █    ██  �
 PROSECUTION ATTORNEY : █  ████                   ██                      
               Character Word Count    Line Count
 0  PROSECUTION ATTORNEY         74             7
-1             JUROR #85         17             1
+1             JUROR  85         17             1
 2      DEFENSE ATTORNEY         62             5
 3                 JUDGE        109            11
-4             JUROR #86        276            15
+4             JUROR  86        276            15
 5               BAILIFF         10             1
 6        Total Duration          -  3 min 39 sec
 ```
