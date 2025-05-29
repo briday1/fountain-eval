@@ -14,7 +14,7 @@
 To install `fountain_eval`, clone the repository and install it using `pip`:
 
 ```bash
-git clone https://github.com/yourusername/fountain_eval.git
+git clone https://github.com/briday1/fountain_eval.git
 cd fountain_eval
 pip install .
 ```
@@ -22,7 +22,7 @@ pip install .
 Alternatively, you can install directly from GitHub via:
 
 ```bash
-pip install git+https://github.com/yourusername/fountain_eval.git
+pip install git+https://github.com/briday1/fountain_eval.git
 ```
 
 Dependencies
