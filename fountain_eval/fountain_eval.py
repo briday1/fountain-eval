@@ -147,6 +147,10 @@ def display_cli_timeline(character_data, total_seconds):
     print(f"\nCharacter Activity Timeline (Duration: {format_duration(total_seconds)})")
     max_length = 50  # Width of timeline bar in characters
 
+    # Find the longest character name
+    max_name_len = max(len(name) for name in character_data)
+
+    # Print timeline bars with aligned names
     for character in sorted(character_data):
         bar = [' '] * max_length
         data = character_data[character]
@@ -157,7 +161,7 @@ def display_cli_timeline(character_data, total_seconds):
             for i in range(start_idx, min(end_idx, max_length)):
                 bar[i] = '█'
 
-        print(f"{character.ljust(15)}: {''.join(bar)}")
+        print(f"{character.ljust(max_name_len)} : {''.join(bar)}")
 
 
 

@@ -47,12 +47,12 @@ Here's an example output
 
 ```bash
 Character Activity Timeline (Duration: 3 min 39 sec)
-PROSECUTION ATTORNEY: █  ████                   ██                      
-JUROR #85      :  █                                                
-DEFENSE ATTORNEY:   █          ██               ██                  
-JUDGE          :        ███            █ ██            █    ███   █
-JUROR #86      :           █ █  ███████ █    ██  ██████ ████   ███ 
-BAILIFF        :            █                                      
+BAILIFF              :            █                                      
+DEFENSE ATTORNEY     :   █          ██               ██                  
+JUDGE                :        ███            █ ██            █    ███   █
+JUROR #85            :  █                                                
+JUROR #86            :           █ █  ███████ █    ██  ██████ ████   ███ 
+PROSECUTION ATTORNEY : █  ████                   ██                      
               Character Word Count    Line Count
 0  PROSECUTION ATTORNEY         74             7
 1             JUROR #85         17             1
