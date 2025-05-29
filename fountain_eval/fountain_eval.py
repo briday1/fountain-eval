@@ -145,16 +145,21 @@ def display_character_counts(character_data, total_seconds):
 
 def display_cli_timeline(character_data, total_seconds):
     print(f"\nCharacter Activity Timeline (Duration: {format_duration(total_seconds)})")
-    max_length = 50
-    for character, data in character_data.items():
+    max_length = 50  # Width of timeline bar in characters
+
+    for character in sorted(character_data):
         bar = [' '] * max_length
+        data = character_data[character]
+
         for start_time, end_time in data['positions']:
             start_idx = int(start_time / total_seconds * max_length)
             end_idx = int(end_time / total_seconds * max_length)
-            for i in range(start_idx, end_idx):
-                if 0 <= i < max_length:
-                    bar[i] = '█'
+            for i in range(start_idx, min(end_idx, max_length)):
+                bar[i] = '█'
+
         print(f"{character.ljust(15)}: {''.join(bar)}")
+
+
 
 def analyze_fountain_file(file_path, wpm=150, show_plot=False, show_cli=False):
     script_title = extract_script_title(file_path)
